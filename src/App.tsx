@@ -93,10 +93,10 @@ function App() {
           </article>
 
           <article>
-            <h3>Telemetry Dashboard</h3>
+            <h3>TelemetryDashboard</h3>
             <img 
-              src="https://via.placeholder.com/400x300?text=Telemetry+Dashboard" 
-              alt="Telemetry Dashboard projesinin ekran görüntüsü"
+              src="https://via.placeholder.com/400x300?text=TelemetryDashboard" 
+              alt="TelemetryDashboard projesinin ekran görüntüsü"
             />
             <p>
               Telemetri verilerini görselleştiren dashboard uygulaması.
@@ -105,7 +105,7 @@ function App() {
             <p><strong>Teknolojiler:</strong> React, TypeScript, Chart.js, WebSocket</p>
             <p>
               <a 
-                href="https://github.com/Enisuzunn/telemetry-dashboard" 
+                href="https://github.com/Enisuzunn/TelemetryDashboard" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="github-link"
