@@ -7,6 +7,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-margin-top: 80px; /* Offset for sticky header */
 }
 
 a {
