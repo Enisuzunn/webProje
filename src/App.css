@@ -131,6 +131,7 @@ figure {
 .profile-placeholder {
   margin: 2rem auto;
   text-align: center;
+  background: transparent;
 }
 
 .profile-photo {
@@ -139,10 +140,13 @@ figure {
   margin: 0 auto;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #4c51bf;
+  object-position: center;
+  border: none;
   box-shadow: 0 8px 24px rgba(76, 81, 191, 0.4);
   transition: transform 0.3s ease;
   display: block;
+  background: transparent;
+  padding: 0;
 }
 
 .profile-photo:hover {
