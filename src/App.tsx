@@ -52,19 +52,32 @@ function App() {
             <div className="avatar">EU</div>
           </div>
           <p>
-            Merhaba! Ben Enis Uzun. Öğrenci numaram: 230541106. Web Tasarımı ve Programlama dersi kapsamında
-            bu portföy sayfasını geliştirdim. Yazılım geliştirme ve web teknolojileri konusunda tutkulu bir öğrenciyim.
+            Merhaba! Ben Enis Uzun. Yazılım geliştirme ve özellikle .NET teknolojileri konusunda tutkulu bir öğrenciyim. 
+            .NET framework ve ekosistemini çok seviyorum ve bu alanda aktif olarak projeler geliştiriyorum.
           </p>
+          <p>
+            Web Tasarımı ve Programlama dersi kapsamında bu portföy sayfasını geliştirdim. 
+            Modern web teknolojileri, backend sistemler ve yazılım mimarisi alanlarında kendimi sürekli geliştirmeye çalışıyorum.
+          </p>
+          
+          <h3>Eğitim</h3>
+          <div className="education-info">
+            <p><strong>Üniversite:</strong> [Üniversite Adı]</p>
+            <p><strong>Öğrenci No:</strong> 230541106</p>
+            <p><strong>Bölüm:</strong> Bilgisayar Programcılığı / Yazılım Mühendisliği</p>
+          </div>
+
           <h3>Kullandığım Teknolojiler:</h3>
           <div className="tech-stack">
+            <span className="tech-badge">.NET</span>
+            <span className="tech-badge">C#</span>
             <span className="tech-badge">React 18</span>
             <span className="tech-badge">TypeScript</span>
-            <span className="tech-badge">Vite</span>
             <span className="tech-badge">HTML5</span>
             <span className="tech-badge">CSS3</span>
-            <span className="tech-badge">Git</span>
             <span className="tech-badge">Python</span>
             <span className="tech-badge">C++</span>
+            <span className="tech-badge">Git</span>
           </div>
         </section>
 
