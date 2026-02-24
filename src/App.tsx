@@ -62,9 +62,9 @@ function App() {
           
           <h3>Eğitim</h3>
           <div className="education-info">
-            <p><strong>Üniversite:</strong> [Üniversite Adı]</p>
+            <p><strong>Üniversite:</strong> Fırat Üniversitesi</p>
             <p><strong>Öğrenci No:</strong> 230541106</p>
-            <p><strong>Bölüm:</strong> Bilgisayar Programcılığı / Yazılım Mühendisliği</p>
+            <p><strong>Bölüm:</strong> Yazılım Mühendisliği</p>
           </div>
 
           <h3>Kullandığım Teknolojiler:</h3>
