@@ -103,7 +103,7 @@ section h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 3px solid #667eea;
+  border-bottom: 3px solid #4c51bf;
   display: inline-block;
 }
 
@@ -154,7 +154,7 @@ figure {
   background: #f7fafc;
   border-radius: 12px;
   transition: all 0.3s ease;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #4c51bf;
 }
 
 #projeler article:hover {
@@ -178,18 +178,18 @@ figure {
 
 .github-link {
   display: inline-block;
-  color: #667eea;
+  color: #4c51bf;
   text-decoration: none;
   font-weight: 600;
   padding: 0.5rem 1rem;
-  border: 2px solid #667eea;
+  border: 2px solid #4c51bf;
   border-radius: 8px;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
 }
 
 .github-link:hover {
-  background: #667eea;
+  background: #4c51bf;
   color: white;
   transform: translateX(5px);
 }
