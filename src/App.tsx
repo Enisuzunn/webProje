@@ -1,29 +1,201 @@
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [errors, setErrors] = useState<Record<string, string>>({})
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const newErrors: Record<string, string> = {}
+
+    if (formData.name.length < 2) newErrors.name = 'Ad Soyad en az 2 karakter olmalı'
+    if (!formData.email.includes('@')) newErrors.email = 'Geçerli bir e-posta girin'
+    if (!formData.subject) newErrors.subject = 'Konu seçiniz'
+    if (formData.message.length < 10) newErrors.message = 'Mesaj en az 10 karakter olmalı'
+
+    setErrors(newErrors)
+    if (Object.keys(newErrors).length === 0) {
+      alert('Form başarıyla gönderildi!')
+    }
+  }
+
   return (
-    <div className="container">
-      <div className="card">
-        <div className="header">
-          <h1 className="title">Web Tasarimi ve Programlama</h1>
-          <span className="badge">LAB-1</span>
-        </div>
-        <div className="content">
-          <div className="info-item">
-            <span className="label">Ad Soyad:</span>
-            <span className="value">Enis Uzun</span>
-          </div>
-          <div className="info-item">
-            <span className="label">Öğrenci No:</span>
-            <span className="value">230541106</span>
-          </div>
-          <div className="info-item">
-            <span className="label">Hobi:</span>
-            <span className="value">Oyun oynamak</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      {/* Skip Navigation */}
+      <a href="#main-content" className="skip-link">Ana içeriğe atla</a>
+
+      {/* Header ve Navigasyon */}
+      <header>
+        <nav aria-label="Ana navigasyon">
+          <ul>
+            <li><a href="#hakkimda">Hakkımda</a></li>
+            <li><a href="#projeler">Projeler</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      {/* Main Content */}
+      <main id="main-content">
+        
+        {/* Hakkımda Bölümü */}
+        <section id="hakkimda">
+          <h2>Hakkımda</h2>
+          <figure>
+            <img 
+              src="https://via.placeholder.com/200" 
+              alt="Enis Uzun'un vesikalık fotoğrafı"
+            />
+            <figcaption>Enis Uzun</figcaption>
+          </figure>
+          <p>
+            Merhaba! Ben Enis Uzun. Web Tasarımı ve Programlama dersi kapsamında
+            bu portföy sayfasını geliştirdim. Öğrenci numaram: 230541106.
+          </p>
+          <h3>Kullandığım Teknolojiler:</h3>
+          <ul>
+            <li>React 18</li>
+            <li>TypeScript</li>
+            <li>Vite</li>
+            <li>HTML5 Semantik Etiketler</li>
+            <li>CSS3</li>
+          </ul>
+        </section>
+
+        {/* Projeler Bölümü */}
+        <section id="projeler">
+          <h2>Projelerim</h2>
+          
+          <article>
+            <h3>LAB-1 Projesi</h3>
+            <img 
+              src="https://via.placeholder.com/400x300" 
+              alt="LAB-1 projesinin ekran görüntüsü: Kart tasarımı ile bilgi gösterimi"
+            />
+            <p>
+              İlk lab projemde React ve TypeScript kullanarak basit bir kart tasarımı oluşturdum.
+              Gradient arka plan ve modern UI elementleri içeriyor.
+            </p>
+            <p><strong>Teknolojiler:</strong> React, TypeScript, CSS Grid/Flexbox</p>
+          </article>
+
+          <article>
+            <h3>Portföy Sayfası</h3>
+            <img 
+              src="https://via.placeholder.com/400x300" 
+              alt="Portföy sayfasının ekran görüntüsü: Semantik HTML yapısı ve erişilebilir form"
+            />
+            <p>
+              Bu projede semantik HTML, ARIA etiketleri ve form validasyonu kullandım.
+              Erişilebilirlik standartlarına uygun bir sayfa geliştirdim.
+            </p>
+            <p><strong>Teknolojiler:</strong> React, HTML5 Semantic Tags, ARIA, Form Validation</p>
+          </article>
+        </section>
+
+        {/* İletişim Formu */}
+        <section id="iletisim">
+          <h2>İletişim</h2>
+          <form onSubmit={handleSubmit} noValidate>
+            <fieldset>
+              <legend>İletişim Formu</legend>
+
+              <div className="form-group">
+                <label htmlFor="name">Ad Soyad:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  required
+                  minLength={2}
+                  aria-describedby="name-error"
+                />
+                {errors.name && (
+                  <small id="name-error" className="error-msg" role="alert">
+                    {errors.name}
+                  </small>
+                )}
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email">E-posta:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  required
+                  aria-describedby="email-error"
+                />
+                {errors.email && (
+                  <small id="email-error" className="error-msg" role="alert">
+                    {errors.email}
+                  </small>
+                )}
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="subject">Konu:</label>
+                <select
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                  required
+                  aria-describedby="subject-error"
+                >
+                  <option value="">-- Seçiniz --</option>
+                  <option value="is">İş Teklifi</option>
+                  <option value="soru">Soru</option>
+                  <option value="oneri">Öneri</option>
+                </select>
+                {errors.subject && (
+                  <small id="subject-error" className="error-msg" role="alert">
+                    {errors.subject}
+                  </small>
+                )}
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="message">Mesajınız:</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  required
+                  minLength={10}
+                  rows={5}
+                  aria-describedby="message-error"
+                ></textarea>
+                {errors.message && (
+                  <small id="message-error" className="error-msg" role="alert">
+                    {errors.message}
+                  </small>
+                )}
+              </div>
+
+              <button type="submit">Gönder</button>
+            </fieldset>
+          </form>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer>
+        <p>&copy; 2025 Enis Uzun. Tüm hakları saklıdır.</p>
+        <p>Web Tasarımı ve Programlama - LAB Projeleri</p>
+      </footer>
+    </>
   )
 }
 
