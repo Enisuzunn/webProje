@@ -32,6 +32,7 @@ function App() {
 
       {/* Header ve Navigasyon */}
       <header>
+        <h1>Enis Uzun - Portfolyo</h1>
         <nav aria-label="Ana navigasyon">
           <ul>
             <li><a href="#hakkimda">Hakkımda</a></li>
