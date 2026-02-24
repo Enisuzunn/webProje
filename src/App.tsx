@@ -47,16 +47,13 @@ function App() {
         {/* Hakkımda Bölümü */}
         <section id="hakkimda">
           <h2>Hakkımda</h2>
-          <figure>
-            <img 
-              src="https://via.placeholder.com/200" 
-              alt="Enis Uzun'un vesikalık fotoğrafı"
-            />
-            <figcaption>Enis Uzun</figcaption>
-          </figure>
+          <div className="profile-placeholder">
+            <p className="profile-text">👤 ENİS UZUN</p>
+            <p className="student-number">Öğrenci No: 230541106</p>
+          </div>
           <p>
             Merhaba! Ben Enis Uzun. Web Tasarımı ve Programlama dersi kapsamında
-            bu portföy sayfasını geliştirdim. Öğrenci numaram: 230541106.
+            bu portföy sayfasını geliştirdim.
           </p>
           <h3>Kullandığım Teknolojiler:</h3>
           <ul>

@@ -114,31 +114,36 @@ section p {
   margin-bottom: 1rem;
 }
 
-/* Profile Photo - Figure & Figcaption */
+/* Profile Section */
 figure {
   margin: 2rem 0;
   text-align: center;
 }
 
-figure img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  border: 5px solid #667eea;
+/* Profile Placeholder */
+.profile-placeholder {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 350px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
   box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
-  transition: transform 0.3s ease;
+  text-align: center;
 }
 
-figure img:hover {
-  transform: scale(1.05);
+.profile-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 2px;
 }
 
-figcaption {
-  margin-top: 1rem;
-  color: #718096;
-  font-style: italic;
-  font-size: 1rem;
+.student-number {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 500;
 }
 
 /* Projects Section */
@@ -316,7 +321,16 @@ footer p {
     font-size: 1rem;
   }
 
-  figure img {
-    max-width: 200px;
+  .profile-placeholder {
+    max-width: 280px;
+    padding: 1.5rem;
+  }
+
+  .profile-text {
+    font-size: 1.5rem;
+  }
+
+  .student-number {
+    font-size: 1rem;
   }
 }
