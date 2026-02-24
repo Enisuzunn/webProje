@@ -20,6 +20,10 @@ a:hover {
 
 body {
   margin: 0;
+<<<<<<< HEAD
+=======
+  padding: 0;
+>>>>>>> feature
   min-width: 320px;
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -28,6 +32,12 @@ body {
 #root {
   width: 100%;
   min-height: 100vh;
+<<<<<<< HEAD
+=======
+  display: flex;
+  justify-content: center;
+  align-items: center;
+>>>>>>> feature
 }
 
 h1 {
