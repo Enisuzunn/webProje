@@ -26,4 +26,5 @@ Tarayicida http://localhost:5173 adresini ac.
 
 ## Ekran Görüntüsü
 
+<img width="1512" height="982" alt="Ekran Resmi 2026-02-24 20 32 48" src="https://github.com/user-attachments/assets/a5463bd6-6286-400f-a11a-350a829194c1" />
 
