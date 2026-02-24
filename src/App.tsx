@@ -50,7 +50,7 @@ function App() {
           <h2>Hakkımda</h2>
           <div className="profile-placeholder">
             <img 
-              src="/profile.png" 
+              src="/foto.png" 
               alt="Enis Uzun profil fotoğrafı"
               className="profile-photo"
             />
