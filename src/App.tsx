@@ -211,7 +211,7 @@ function App() {
             <p className="footer-student">Öğrenci No: 230541106</p>
           </div>
           <div className="footer-links">
-            <h4>Bağlantılar</h4>
+            <h3>Bağlantılar</h3>
             <nav aria-label="Sosyal medya bağlantıları">
               <a 
                 href="https://github.com/Enisuzunn" 
