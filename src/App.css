@@ -1,25 +1,93 @@
-.container {
-  width: 100%;
-  height: 100%;
+/* Skip Link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
+
+/* Header & Navigation */
+header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  text-align: center;
+  color: white;
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header nav ul {
+  list-style: none;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  box-sizing: border-box;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
 }
 
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 3rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
-  width: calc(100% - 2rem);
+header nav li {
+  margin: 0;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: inline-block;
+}
+
+header nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+header nav a:focus {
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
   margin: 0 auto;
-  animation: fadeIn 0.6s ease-in;
+  padding: 2rem 1rem;
 }
 
-@keyframes fadeIn {
+/* Sections */
+section {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -30,61 +98,225 @@
   }
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 2.5rem;
-  position: relative;
-}
-
-.title {
-  font-size: 2rem;
-  font-weight: 700;
+section h2 {
   color: #2d3748;
-  margin: 0 0 1rem 0;
-  line-height: 1.3;
-}
-
-.badge {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #667eea;
   display: inline-block;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 30px;
-  font-weight: 600;
+}
+
+section p {
+  line-height: 1.8;
+  color: #4a5568;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Profile Photo - Figure & Figcaption */
+figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  border: 5px solid #667eea;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+  transition: transform 0.3s ease;
+}
+
+figure img:hover {
+  transform: scale(1.05);
+}
+
+figcaption {
+  margin-top: 1rem;
+  color: #718096;
+  font-style: italic;
   font-size: 1rem;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.info-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem;
+/* Projects Section */
+#projeler article {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
   background: #f7fafc;
   border-radius: 12px;
   transition: all 0.3s ease;
   border-left: 4px solid #667eea;
 }
 
-.info-item:hover {
+#projeler article:hover {
   transform: translateX(5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+#projeler h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#projeler img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.label {
-  font-weight: 600;
-  color: #4a5568;
-  font-size: 1.1rem;
+/* Contact Form */
+#iletisim form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.value {
-  font-weight: 500;
-  color: #667eea;
+fieldset {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+legend {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  padding: 0 1rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+  border-color: #cbd5e0;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
   font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+button[type="submit"]:focus {
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Form Errors */
+.error {
+  color: #e53e3e;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+input.error-input,
+textarea.error-input {
+  border-color: #e53e3e;
+}
+
+/* Footer */
+footer {
+  background: #2d3748;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header nav ul {
+    gap: 1rem;
+  }
+
+  header nav a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 1rem 0.5rem;
+  }
+
+  section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  section p {
+    font-size: 1rem;
+  }
+
+  figure img {
+    max-width: 200px;
+  }
 }
