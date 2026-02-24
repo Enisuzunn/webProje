@@ -71,10 +71,6 @@ function App() {
           
           <article>
             <h3>TelemetryGroundStation</h3>
-            <img 
-              src="https://via.placeholder.com/400x300?text=Telemetry+Ground+Station" 
-              alt="TelemetryGroundStation projesinin ekran görüntüsü"
-            />
             <p>
               Telemetri verilerini toplayan ve işleyen yer istasyonu projesi. 
               Gerçek zamanlı veri alımı ve izleme özellikleri içerir.
@@ -94,10 +90,6 @@ function App() {
 
           <article>
             <h3>TelemetryDashboard</h3>
-            <img 
-              src="https://via.placeholder.com/400x300?text=TelemetryDashboard" 
-              alt="TelemetryDashboard projesinin ekran görüntüsü"
-            />
             <p>
               Telemetri verilerini görselleştiren dashboard uygulaması.
               Grafik ve metrik gösterimleri ile detaylı veri analizi sağlar.
