@@ -70,29 +70,49 @@ function App() {
           <h2>Projelerim</h2>
           
           <article>
-            <h3>LAB-1 Projesi</h3>
+            <h3>TelemetryGroundStation</h3>
             <img 
-              src="https://via.placeholder.com/400x300" 
-              alt="LAB-1 projesinin ekran görüntüsü: Kart tasarımı ile bilgi gösterimi"
+              src="https://via.placeholder.com/400x300?text=Telemetry+Ground+Station" 
+              alt="TelemetryGroundStation projesinin ekran görüntüsü"
             />
             <p>
-              İlk lab projemde React ve TypeScript kullanarak basit bir kart tasarımı oluşturdum.
-              Gradient arka plan ve modern UI elementleri içeriyor.
+              Telemetri verilerini toplayan ve işleyen yer istasyonu projesi. 
+              Gerçek zamanlı veri alımı ve izleme özellikleri içerir.
             </p>
-            <p><strong>Teknolojiler:</strong> React, TypeScript, CSS Grid/Flexbox</p>
+            <p><strong>Teknolojiler:</strong> Python, C++, Real-time Data Processing</p>
+            <p>
+              <a 
+                href="https://github.com/Enisuzunn/TelemetryGroundStation" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="github-link"
+              >
+                GitHub'da Görüntüle →
+              </a>
+            </p>
           </article>
 
           <article>
-            <h3>Portföy Sayfası</h3>
+            <h3>Telemetry Dashboard</h3>
             <img 
-              src="https://via.placeholder.com/400x300" 
-              alt="Portföy sayfasının ekran görüntüsü: Semantik HTML yapısı ve erişilebilir form"
+              src="https://via.placeholder.com/400x300?text=Telemetry+Dashboard" 
+              alt="Telemetry Dashboard projesinin ekran görüntüsü"
             />
             <p>
-              Bu projede semantik HTML, ARIA etiketleri ve form validasyonu kullandım.
-              Erişilebilirlik standartlarına uygun bir sayfa geliştirdim.
+              Telemetri verilerini görselleştiren dashboard uygulaması.
+              Grafik ve metrik gösterimleri ile detaylı veri analizi sağlar.
             </p>
-            <p><strong>Teknolojiler:</strong> React, HTML5 Semantic Tags, ARIA, Form Validation</p>
+            <p><strong>Teknolojiler:</strong> React, TypeScript, Chart.js, WebSocket</p>
+            <p>
+              <a 
+                href="https://github.com/Enisuzunn/telemetry-dashboard" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="github-link"
+              >
+                GitHub'da Görüntüle →
+              </a>
+            </p>
           </article>
         </section>
 
