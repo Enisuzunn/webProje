@@ -48,11 +48,10 @@ function App() {
         <section id="hakkimda">
           <h2>Hakkımda</h2>
           <div className="profile-placeholder">
-            <p className="profile-text">👤 ENİS UZUN</p>
-            <p className="student-number">Öğrenci No: 230541106</p>
+            <div className="avatar">EU</div>
           </div>
           <p>
-            Merhaba! Ben Enis Uzun. Web Tasarımı ve Programlama dersi kapsamında
+            Merhaba! Ben Enis Uzun. Öğrenci numaram: 230541106. Web Tasarımı ve Programlama dersi kapsamında
             bu portföy sayfasını geliştirdim.
           </p>
           <h3>Kullandığım Teknolojiler:</h3>
