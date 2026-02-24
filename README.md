@@ -24,3 +24,6 @@ npm run dev
 
 Tarayicida http://localhost:5173 adresini ac.
 
+## Ekran Görüntüsü
+
+
