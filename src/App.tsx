@@ -49,7 +49,11 @@ function App() {
         <section id="hakkimda">
           <h2>Hakkımda</h2>
           <div className="profile-placeholder">
-            <div className="avatar">EU</div>
+            <img 
+              src="/profile.png" 
+              alt="Enis Uzun profil fotoğrafı"
+              className="profile-photo"
+            />
           </div>
           <p>
             Merhaba! Ben Enis Uzun. Yazılım geliştirme ve özellikle .NET teknolojileri konusunda tutkulu bir öğrenciyim. 
