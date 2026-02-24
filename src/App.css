@@ -180,6 +180,26 @@ figure {
   box-shadow: 0 4px 12px rgba(76, 81, 191, 0.5);
 }
 
+/* Education Info */
+.education-info {
+  background: #f7fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #4c51bf;
+  margin: 1rem 0 2rem 0;
+}
+
+.education-info p {
+  margin: 0.75rem 0;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.education-info strong {
+  color: #2d3748;
+  font-weight: 600;
+}
+
 /* Projects Section */
 #projeler article {
   margin-bottom: 2rem;
@@ -468,6 +488,14 @@ footer {
   .tech-badge {
     font-size: 0.85rem;
     padding: 0.4rem 0.8rem;
+  }
+
+  .education-info {
+    padding: 1rem;
+  }
+
+  .education-info p {
+    font-size: 0.9rem;
   }
 
   .footer-content {
