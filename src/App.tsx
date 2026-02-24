@@ -17,6 +17,10 @@ function App() {
             <span className="label">Öğrenci No:</span>
             <span className="value">230541106</span>
           </div>
+          <div className="info-item">
+            <span className="label">Hobi:</span>
+            <span className="value">Oyun oynamak</span>
+          </div>
         </div>
       </div>
     </div>
