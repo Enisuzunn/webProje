@@ -20,7 +20,7 @@
 
 /* Header & Navigation */
 header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
   padding: 1.5rem 1rem;
   position: sticky;
   top: 0;
@@ -103,7 +103,7 @@ section h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 3px solid #4c51bf;
+  border-bottom: 3px solid #2563eb;
   display: inline-block;
 }
 
@@ -164,20 +164,20 @@ figure {
 
 .tech-badge {
   display: inline-block;
-  background: linear-gradient(135deg, #4c51bf 0%, #667eea 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(76, 81, 191, 0.3);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
   transition: all 0.3s ease;
   cursor: default;
 }
 
 .tech-badge:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(76, 81, 191, 0.5);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.5);
 }
 
 /* Education Info */
@@ -185,7 +185,7 @@ figure {
   background: #f7fafc;
   padding: 1.5rem;
   border-radius: 12px;
-  border-left: 4px solid #4c51bf;
+  border-left: 4px solid #2563eb;
   margin: 1rem 0 2rem 0;
 }
 
@@ -207,14 +207,14 @@ figure {
   background: linear-gradient(to bottom right, #ffffff 0%, #f7fafc 100%);
   border-radius: 16px;
   transition: all 0.3s ease;
-  border-left: 5px solid #4c51bf;
+  border-left: 5px solid #2563eb;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 #projeler article:hover {
   transform: translateY(-5px) translateX(5px);
-  box-shadow: 0 8px 24px rgba(76, 81, 191, 0.15);
-  border-left-color: #667eea;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+  border-left-color: #3b82f6;
 }
 
 #projeler h3 {
@@ -233,18 +233,18 @@ figure {
 
 .github-link {
   display: inline-block;
-  color: #4c51bf;
+  color: #2563eb;
   text-decoration: none;
   font-weight: 600;
   padding: 0.5rem 1rem;
-  border: 2px solid #4c51bf;
+  border: 2px solid #2563eb;
   border-radius: 8px;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
 }
 
 .github-link:hover {
-  background: #4c51bf;
+  background: #2563eb;
   color: white;
   transform: translateX(5px);
 }
@@ -299,8 +299,8 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 input[type="text"]:hover,
@@ -315,7 +315,7 @@ textarea {
 }
 
 button[type="submit"] {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -324,12 +324,12 @@ button[type="submit"] {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 button[type="submit"]:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
 }
 
 button[type="submit"]:focus {
