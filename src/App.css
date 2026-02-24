@@ -123,27 +123,28 @@ figure {
 /* Profile Placeholder */
 .profile-placeholder {
   margin: 2rem auto;
-  padding: 2rem;
-  max-width: 350px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
   text-align: center;
 }
 
-.profile-text {
-  font-size: 2rem;
+.avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
   font-weight: 700;
   color: white;
-  margin: 0 0 0.5rem 0;
-  letter-spacing: 2px;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+  letter-spacing: 4px;
+  transition: transform 0.3s ease;
 }
 
-.student-number {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  font-weight: 500;
+.avatar:hover {
+  transform: scale(1.05);
 }
 
 /* Projects Section */
@@ -321,16 +322,10 @@ footer p {
     font-size: 1rem;
   }
 
-  .profile-placeholder {
-    max-width: 280px;
-    padding: 1.5rem;
-  }
-
-  .profile-text {
-    font-size: 1.5rem;
-  }
-
-  .student-number {
-    font-size: 1rem;
+  .avatar {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+    letter-spacing: 3px;
   }
 }
