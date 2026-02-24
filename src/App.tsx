@@ -53,16 +53,19 @@ function App() {
           </div>
           <p>
             Merhaba! Ben Enis Uzun. Öğrenci numaram: 230541106. Web Tasarımı ve Programlama dersi kapsamında
-            bu portföy sayfasını geliştirdim.
+            bu portföy sayfasını geliştirdim. Yazılım geliştirme ve web teknolojileri konusunda tutkulu bir öğrenciyim.
           </p>
           <h3>Kullandığım Teknolojiler:</h3>
-          <ul>
-            <li>React 18</li>
-            <li>TypeScript</li>
-            <li>Vite</li>
-            <li>HTML5 Semantik Etiketler</li>
-            <li>CSS3</li>
-          </ul>
+          <div className="tech-stack">
+            <span className="tech-badge">React 18</span>
+            <span className="tech-badge">TypeScript</span>
+            <span className="tech-badge">Vite</span>
+            <span className="tech-badge">HTML5</span>
+            <span className="tech-badge">CSS3</span>
+            <span className="tech-badge">Git</span>
+            <span className="tech-badge">Python</span>
+            <span className="tech-badge">C++</span>
+          </div>
         </section>
 
         {/* Projeler Bölümü */}
@@ -201,8 +204,32 @@ function App() {
 
       {/* Footer */}
       <footer>
-        <p>&copy; 2025 Enis Uzun. Tüm hakları saklıdır.</p>
-        <p>Web Tasarımı ve Programlama - LAB Projeleri</p>
+        <div className="footer-content">
+          <div className="footer-info">
+            <p className="footer-title">Enis Uzun</p>
+            <p className="footer-subtitle">Web Tasarımı ve Programlama - LAB Projeleri</p>
+            <p className="footer-student">Öğrenci No: 230541106</p>
+          </div>
+          <div className="footer-links">
+            <h4>Bağlantılar</h4>
+            <nav aria-label="Sosyal medya bağlantıları">
+              <a 
+                href="https://github.com/Enisuzunn" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
+                GitHub
+              </a>
+              <a href="#hakkimda" className="footer-link">Hakkımda</a>
+              <a href="#projeler" className="footer-link">Projeler</a>
+              <a href="#iletisim" className="footer-link">İletişim</a>
+            </nav>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; 2026 Enis Uzun. Tüm hakları saklıdır.</p>
+        </div>
       </footer>
     </>
   )
