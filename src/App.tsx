@@ -32,7 +32,7 @@ function App() {
 
       {/* Header ve Navigasyon */}
       <header>
-        <h1>Enis Uzun - Portfolyo</h1>
+        <h1 className="site-title">Enis Uzun - Portfolyo</h1>
         <nav aria-label="Ana navigasyon">
           <ul>
             <li><a href="#hakkimda">Hakkımda</a></li>
@@ -48,84 +48,99 @@ function App() {
         {/* Hakkımda Bölümü */}
         <section id="hakkimda">
           <h2>Hakkımda</h2>
-          <div className="profile-placeholder">
-            <img 
-              src="/foto.png" 
-              alt="Enis Uzun profil fotoğrafı"
-              className="profile-photo"
-            />
-          </div>
-          <p>
-            Merhaba! Ben Enis Uzun. Yazılım geliştirme ve özellikle .NET teknolojileri konusunda tutkulu bir öğrenciyim. 
-            .NET framework ve ekosistemini çok seviyorum ve bu alanda aktif olarak projeler geliştiriyorum.
-          </p>
-          <p>
-            Web Tasarımı ve Programlama dersi kapsamında bu portföy sayfasını geliştirdim. 
-            Modern web teknolojileri, backend sistemler ve yazılım mimarisi alanlarında kendimi sürekli geliştirmeye çalışıyorum.
-          </p>
-          
-          <h3>Eğitim</h3>
-          <div className="education-info">
-            <p><strong>Üniversite:</strong> Fırat Üniversitesi</p>
-            <p><strong>Öğrenci No:</strong> 230541106</p>
-            <p><strong>Bölüm:</strong> Yazılım Mühendisliği</p>
-          </div>
+          <div className="about-content">
+            <figure>
+              <img 
+                src="/foto.png" 
+                alt="Enis Uzun profil fotoğrafı"
+              />
+            </figure>
+            <div>
+              <p>
+                Merhaba! Ben Enis Uzun. Yazılım geliştirme ve özellikle .NET teknolojileri konusunda tutkulu bir öğrenciyim. 
+                .NET framework ve ekosistemini çok seviyorum ve bu alanda aktif olarak projeler geliştiriyorum.
+              </p>
+              <p>
+                Web Tasarımı ve Programlama dersi kapsamında bu portföy sayfasını geliştirdim. 
+                Modern web teknolojileri, backend sistemler ve yazılım mimarisi alanlarında kendimi sürekli geliştirmeye çalışıyorum.
+              </p>
+              
+              <h3>Eğitim</h3>
+              <div className="education-info">
+                <p><strong>Üniversite:</strong> Fırat Üniversitesi</p>
+                <p><strong>Öğrenci No:</strong> 230541106</p>
+                <p><strong>Bölüm:</strong> Yazılım Mühendisliği</p>
+              </div>
 
-          <h3>Kullandığım Teknolojiler:</h3>
-          <div className="tech-stack">
-            <span className="tech-badge">.NET</span>
-            <span className="tech-badge">C#</span>
-            <span className="tech-badge">React 18</span>
-            <span className="tech-badge">TypeScript</span>
-            <span className="tech-badge">HTML5</span>
-            <span className="tech-badge">CSS3</span>
-            <span className="tech-badge">Python</span>
-            <span className="tech-badge">C++</span>
-            <span className="tech-badge">Git</span>
+              <h3>Kullandığım Teknolojiler:</h3>
+              <ul className="skill-tags" role="list" aria-label="Beceri etiketleri">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Git</li>
+                <li>.NET</li>
+                <li>C#</li>
+                <li>Python</li>
+                <li>C++</li>
+              </ul>
+            </div>
           </div>
         </section>
 
         {/* Projeler Bölümü */}
         <section id="projeler">
           <h2>Projelerim</h2>
-          
-          <article>
-            <h3>TelemetryGroundStation</h3>
-            <p>
-              Telemetri verilerini toplayan ve işleyen yer istasyonu projesi. 
-              Gerçek zamanlı veri alımı ve izleme özellikleri içerir.
-            </p>
-            <p><strong>Teknolojiler:</strong> Python, C++, Real-time Data Processing</p>
-            <p>
-              <a 
-                href="https://github.com/Enisuzunn/TelemetryGroundStation" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="github-link"
-              >
-                GitHub'da Görüntüle →
-              </a>
-            </p>
-          </article>
+          <div className="project-grid">
+            
+            <article className="project-card">
+              <img 
+                src="/proje1.jpg" 
+                alt="E-Ticaret sitesi ekran görüntüsü" 
+              />
+              <h3>E-Ticaret Sitesi</h3>
+              <p>
+                React ve Node.js ile geliştirilmiş tam kapsamlı bir e-ticaret uygulaması.
+              </p>
+              <ul className="skill-tags">
+                <li>React</li>
+                <li>Node.js</li>
+                <li>MongoDB</li>
+              </ul>
+            </article>
 
-          <article>
-            <h3>TelemetryDashboard</h3>
-            <p>
-              Telemetri verilerini görselleştiren dashboard uygulaması.
-              Grafik ve metrik gösterimleri ile detaylı veri analizi sağlar.
-            </p>
-            <p><strong>Teknolojiler:</strong> React, TypeScript, Chart.js, WebSocket</p>
-            <p>
-              <a 
-                href="https://github.com/Enisuzunn/TelemetryDashboard" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="github-link"
-              >
-                GitHub'da Görüntüle →
-              </a>
-            </p>
-          </article>
+            <article className="project-card">
+              <img 
+                src="/proje2.jpg" 
+                alt="Blog uygulaması yazı listesi görünümü" 
+              />
+              <h3>Blog Uygulaması</h3>
+              <p>
+                Kişisel blog platformu. Markdown destekli yazı editörü.
+              </p>
+              <ul className="skill-tags">
+                <li>TypeScript</li>
+                <li>Next.js</li>
+              </ul>
+            </article>
+
+            <article className="project-card">
+              <img 
+                src="/proje3.jpg" 
+                alt="Hava durumu uygulaması arayüzü" 
+              />
+              <h3>Hava Durumu</h3>
+              <p>
+                OpenWeather API ile anlık hava durumu bilgisi.
+              </p>
+              <ul className="skill-tags">
+                <li>JavaScript</li>
+                <li>API</li>
+              </ul>
+            </article>
+
+          </div>
         </section>
 
         {/* İletişim Formu */}
