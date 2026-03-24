@@ -1,15 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './App.css'
 import { useTheme } from './context/ThemeContext'
 import Button from './components/Button'
 import Input from './components/Input'
 import Card from './components/Card'
+import { fetchProjects } from './services/projectService'
+import { sortItems } from './utils/collection'
+import type { Category, Project, ProjectFilters, SortOption } from './types/project'
 
 /* -------------------------------------------------------
    Mevcut tüm state ve form doğrulama mantığı KORUNUYORk
    ------------------------------------------------------- */
-function App() {
+const App = () => {
   const { isDark, toggleDark } = useTheme()
 
   const [formData, setFormData] = useState({
@@ -19,6 +22,33 @@ function App() {
     message: ''
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [projects, setProjects] = useState<Project[]>([])
+  const [visibleProjects, setVisibleProjects] = useState<Project[]>([])
+  const [isLoadingProjects, setIsLoadingProjects] = useState<boolean>(false)
+  const [isProcessingProjects, setIsProcessingProjects] = useState<boolean>(false)
+  const [projectLoadError, setProjectLoadError] = useState<string | null>(null)
+  const [projectProcessError, setProjectProcessError] = useState<string | null>(null)
+  const [sortOption, setSortOption] = useState<SortOption>('year-desc')
+  const [projectFilters, setProjectFilters] = useState<ProjectFilters>({
+    searchText: '',
+    selectedCategory: 'all',
+    selectedStatus: 'all',
+    minimumYear: 2023,
+    featuredOnly: false,
+  })
+
+  const categories = useMemo<Array<Category | 'all'>>(() => {
+    const allCategories = projects.map((project) => project.category)
+    return ['all', ...Array.from(new Set(allCategories))]
+  }, [projects])
+
+  const categoryLabels: Record<Category | 'all', string> = {
+    all: 'Tum kategoriler',
+    web: 'Web',
+    mobile: 'Mobil',
+    backend: 'Backend',
+    fullstack: 'Fullstack',
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -35,32 +65,66 @@ function App() {
     }
   }
 
-  const projects = [
-    {
-      id: 1,
-      title: 'E-Ticaret Sitesi',
-      description: 'React ve Node.js ile geliştirilmiş tam kapsamlı bir e-ticaret uygulaması.',
-      image: '/proje1.jpg',
-      imageAlt: 'E-Ticaret sitesi ekran görüntüsü',
-      tags: ['React', 'Node.js', 'MongoDB'],
-    },
-    {
-      id: 2,
-      title: 'Blog Uygulaması',
-      description: 'Kişisel blog platformu. Markdown destekli yazı editörü.',
-      image: '/proje2.jpg',
-      imageAlt: 'Blog uygulaması yazı listesi görünümü',
-      tags: ['TypeScript', 'Next.js'],
-    },
-    {
-      id: 3,
-      title: 'Hava Durumu',
-      description: 'OpenWeather API ile anlık hava durumu bilgisi.',
-      image: '/proje3.jpg',
-      imageAlt: 'Hava durumu uygulaması arayüzü',
-      tags: ['JavaScript', 'API'],
-    },
-  ]
+  useEffect(() => {
+    const loadProjects = async () => {
+      setIsLoadingProjects(true)
+      setProjectLoadError(null)
+
+      try {
+        const data = await fetchProjects()
+        setProjects(data)
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Bilinmeyen hata'
+        setProjectLoadError(message)
+      } finally {
+        setIsLoadingProjects(false)
+      }
+    }
+
+    void loadProjects()
+  }, [])
+
+  useEffect(() => {
+    setIsProcessingProjects(true)
+    setProjectProcessError(null)
+
+    try {
+      const filteredProjects = projects.filter((project) => {
+        const searchText = projectFilters.searchText.trim().toLocaleLowerCase('tr')
+        const titleMatch = project.title.toLocaleLowerCase('tr').includes(searchText)
+        const descriptionMatch = project.description.toLocaleLowerCase('tr').includes(searchText)
+        const tagMatch = project.tags.some((tag) =>
+          tag.toLocaleLowerCase('tr').includes(searchText),
+        )
+
+        const matchesSearch = !searchText || titleMatch || descriptionMatch || tagMatch
+        const matchesCategory =
+          projectFilters.selectedCategory === 'all' ||
+          project.category === projectFilters.selectedCategory
+        const matchesStatus =
+          projectFilters.selectedStatus === 'all' || project.status === projectFilters.selectedStatus
+        const matchesYear = project.year >= projectFilters.minimumYear
+        const matchesFeatured = !projectFilters.featuredOnly || project.featured
+
+        return matchesSearch && matchesCategory && matchesStatus && matchesYear && matchesFeatured
+      })
+
+      const sortedProjects = sortItems<Project>(filteredProjects, (a, b) => {
+        if (sortOption === 'title-asc') return a.title.localeCompare(b.title, 'tr')
+        if (sortOption === 'title-desc') return b.title.localeCompare(a.title, 'tr')
+        if (sortOption === 'year-asc') return a.year - b.year
+        return b.year - a.year
+      })
+
+      setVisibleProjects(sortedProjects)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Bilinmeyen hata'
+      setProjectProcessError(`Projeler işlenirken hata oluştu: ${message}`)
+      setVisibleProjects([])
+    } finally {
+      setIsProcessingProjects(false)
+    }
+  }, [projects, projectFilters, sortOption])
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -166,8 +230,140 @@ function App() {
         <section id="projeler" className="px-6 py-16 md:py-20 bg-surface dark:bg-gray-900">
           <h2 className="text-3xl font-bold text-primary text-center mb-10">Projelerim</h2>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <Input
+              id="project-search"
+              label="Projede Ara"
+              type="text"
+              placeholder="Başlık, açıklama veya etiket"
+              value={projectFilters.searchText}
+              onChange={(e) =>
+                setProjectFilters((prev) => ({
+                  ...prev,
+                  searchText: e.target.value,
+                }))
+              }
+            />
+
+            <div className="flex flex-col gap-1">
+              <label htmlFor="project-category" className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Kategori
+              </label>
+              <select
+                id="project-category"
+                value={projectFilters.selectedCategory}
+                onChange={(e) =>
+                  setProjectFilters((prev) => ({
+                    ...prev,
+                    selectedCategory: e.target.value as Category | 'all',
+                  }))
+                }
+                className="w-full px-3 py-2 border border-border rounded-md bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
+              >
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {categoryLabels[category]}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label htmlFor="project-status" className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Durum
+              </label>
+              <select
+                id="project-status"
+                value={projectFilters.selectedStatus}
+                onChange={(e) =>
+                  setProjectFilters((prev) => ({
+                    ...prev,
+                    selectedStatus: e.target.value as Project['status'] | 'all',
+                  }))
+                }
+                className="w-full px-3 py-2 border border-border rounded-md bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
+              >
+                <option value="all">Tüm durumlar</option>
+                <option value="active">Devam Ediyor</option>
+                <option value="completed">Tamamlandı</option>
+              </select>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label htmlFor="project-sort" className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Sıralama
+              </label>
+              <select
+                id="project-sort"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value as SortOption)}
+                className="w-full px-3 py-2 border border-border rounded-md bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
+              >
+                <option value="year-desc">Yıl (Yeni → Eski)</option>
+                <option value="year-asc">Yıl (Eski → Yeni)</option>
+                <option value="title-asc">Başlık (A → Z)</option>
+                <option value="title-desc">Başlık (Z → A)</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <label htmlFor="minimum-year" className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Minimum Yıl
+              </label>
+              <input
+                id="minimum-year"
+                type="number"
+                min={2020}
+                max={2030}
+                value={projectFilters.minimumYear}
+                onChange={(e) =>
+                  setProjectFilters((prev) => ({
+                    ...prev,
+                    minimumYear: Number(e.target.value) || 2020,
+                  }))
+                }
+                className="w-32 px-3 py-2 border border-border rounded-md bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
+              />
+            </div>
+
+            <label className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200">
+              <input
+                type="checkbox"
+                checked={projectFilters.featuredOnly}
+                onChange={(e) =>
+                  setProjectFilters((prev) => ({
+                    ...prev,
+                    featuredOnly: e.target.checked,
+                  }))
+                }
+              />
+              Sadece öne çıkan projeleri göster
+            </label>
+          </div>
+
+          <div className="mb-6 text-sm text-gray-700 dark:text-gray-300">
+            {visibleProjects.length} proje listeleniyor
+            {isProcessingProjects ? ' (işleniyor...)' : ''}
+          </div>
+
+          {isLoadingProjects && (
+            <p className="mb-6 text-sm text-gray-700 dark:text-gray-300">Projeler yükleniyor...</p>
+          )}
+
+          {(projectLoadError || projectProcessError) && (
+            <p role="alert" className="mb-6 text-sm text-error font-medium">
+              {projectLoadError ?? projectProcessError}
+            </p>
+          )}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map(project => (
+            {!isLoadingProjects && visibleProjects.length === 0 && !(projectLoadError || projectProcessError) && (
+              <p className="text-sm text-gray-700 dark:text-gray-300">Kriterlere uygun proje bulunamadı.</p>
+            )}
+
+            {visibleProjects.map((project) => (
               <Card
                 key={project.id}
                 variant="elevated"
@@ -176,11 +372,30 @@ function App() {
                 imageAlt={project.imageAlt}
                 footer={
                   <ul className="flex flex-wrap gap-2 list-none p-0">
-                    {project.tags.map(tag => (
+                    {project.tags.map((tag) => (
                       <li key={tag} className="bg-primary text-white px-3 py-1 rounded-full text-sm">
                         {tag}
                       </li>
                     ))}
+                    <li className="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">
+                      {project.year}
+                    </li>
+                    <li
+                      className={[
+                        'px-3 py-1 rounded-full text-sm text-white',
+                        project.status === 'active' ? 'bg-green-600' : 'bg-blue-600',
+                      ].join(' ')}
+                    >
+                      {project.status === 'active' ? 'Devam Ediyor' : 'Tamamlandı'}
+                    </li>
+                    <li className="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm">
+                      {categoryLabels[project.category]}
+                    </li>
+                    {project.featured && (
+                      <li className="bg-amber-500 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                        Öne Çıkan
+                      </li>
+                    )}
                   </ul>
                 }
               >
