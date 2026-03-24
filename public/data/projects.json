@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "E-Ticaret Sitesi",
+    "description": "React ve Node.js ile geliştirilmiş tam kapsamlı bir e-ticaret uygulaması.",
+    "image": "/proje1.jpg",
+    "imageAlt": "E-Ticaret sitesi ekran görüntüsü",
+    "tags": ["React", "Node.js", "MongoDB"],
+    "category": "fullstack",
+    "year": 2025,
+    "status": "active",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Blog Uygulaması",
+    "description": "Markdown destekli yazı editörüne sahip kişisel blog platformu.",
+    "image": "/proje2.jpg",
+    "imageAlt": "Blog uygulaması yazı listesi görünümü",
+    "tags": ["TypeScript", "Next.js"],
+    "category": "web",
+    "year": 2024,
+    "status": "completed",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Hava Durumu",
+    "description": "OpenWeather API ile anlık hava durumu bilgisi sunan uygulama.",
+    "image": "/proje3.jpg",
+    "imageAlt": "Hava durumu uygulaması arayüzü",
+    "tags": ["JavaScript", "API"],
+    "category": "web",
+    "year": 2023,
+    "status": "completed",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Görev Takip Paneli",
+    "description": "Takım içi görev planlama ve ilerleme takibi için yönetim paneli.",
+    "image": "/proje4.jpg",
+    "imageAlt": "Görev takip paneli ekranı",
+    "tags": ["React", "TypeScript", "Firebase"],
+    "category": "fullstack",
+    "year": 2026,
+    "status": "active",
+    "featured": true
+  },
+  {
+    "id": 5,
+    "title": "Siparis API",
+    "description": "JWT tabanli kimlik dogrulama ve rol yonetimi iceren REST API servisi.",
+    "image": "/proje5.jpg",
+    "imageAlt": "Siparis API dokumantasyon ekrani",
+    "tags": ["Node.js", "Express", "PostgreSQL"],
+    "category": "backend",
+    "year": 2026,
+    "status": "active",
+    "featured": false
+  }
+]
