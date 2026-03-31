@@ -1,3 +1,5 @@
+/* Context modülü: Provider ile hook aynı dosyada (React yaygın deseni) */
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, type ReactNode } from 'react'
 
 interface ThemeContextType {

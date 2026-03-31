@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
-import Button from '../components/Button'
+import Button from '../components/ui/Button'
 import Input from '../components/Input'
-import Card from '../components/Card'
-import Alert from '../components/Alert'
+import Card from '../components/ui/Card'
+import Alert from '../components/ui/Alert'
 
 export default function UIKit() {
   const { isDark, toggleDark } = useTheme()

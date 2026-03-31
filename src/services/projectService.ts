@@ -1,6 +1,5 @@
 import type { Project } from '../types/project'
 
-/** `public/data/projects.json` kaynağından proje listesini yükler. */
 const PROJECTS_ENDPOINT = '/data/projects.json'
 
 const parseJson = async <T>(response: Response): Promise<T> => {
