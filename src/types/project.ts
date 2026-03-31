@@ -1,7 +1,11 @@
 export type ProjectStatus = 'active' | 'completed'
 export type Category = 'web' | 'mobile' | 'backend' | 'fullstack'
 
-export type SortOption = 'title-asc' | 'title-desc' | 'year-desc' | 'year-asc'
+/** Sıralama alanı: başlık veya yıl */
+export type SortField = 'title' | 'year'
+
+/** Sıralama yönü */
+export type SortOrder = 'asc' | 'desc'
 
 export interface Project {
   id: number
@@ -19,7 +23,6 @@ export interface Project {
 export interface ProjectFilters {
   searchText: string
   selectedCategory: Category | 'all'
-  selectedStatus: ProjectStatus | 'all'
-  minimumYear: number
-  featuredOnly: boolean
+  sortField: SortField
+  sortOrder: SortOrder
 }
